@@ -14,7 +14,7 @@ Ashley Erffmeyer, with major support from KU's Coding Boot Camp staff members:
 * JavaScript
 * MySQL
 * Node.js
-* [Inquirer](https://www.npmjs.com/package/inquirer)
+* [Body-Parser](https://www.npmjs.com/package/body-parser)
 * [MySQL](https://www.npmjs.com/package/mysql)
 * Express.js
 * Heroku
