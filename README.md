@@ -16,6 +16,7 @@ Ashley Erffmeyer, with major support from KU's Coding Boot Camp staff members:
 * Node.js
 * [Inquirer](https://www.npmjs.com/package/inquirer)
 * [MySQL](https://www.npmjs.com/package/mysql)
+* Express.js
 * Heroku
 
 ## Prerequisites & Installations
