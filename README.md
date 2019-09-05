@@ -38,7 +38,7 @@ The `apiRoutes.js` file contains two routes:
    * A GET route with the url `/api/friends`. This displays a JSON of all possible friends.
    * A POST routes `/api/friends`. This is used to handle incoming survey results and the compatibility logic.
 
-The application's data is saved inside of `app/data/friends.js` as an array of objects. Each of these objects should roughly follow the format below.
+The application's data is saved inside of `app/data/friends.js` as an array of objects. Each of these objects roughly follow the format below.
 
 ```json
 {
@@ -59,7 +59,7 @@ The application's data is saved inside of `app/data/friends.js` as an array of o
 }
 ```
 
-6. Determine the user's most compatible friend using the following as a guide:
+The user's most compatible friend is determined using the following as a guide:
 
    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
    * With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
@@ -70,8 +70,8 @@ The application's data is saved inside of `app/data/friends.js` as an array of o
    * Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on.
    * The closest match will be the user with the least amount of difference.
 
-7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-   * The modal should display both the name and picture of the closest match.
+Once you've found the current user's most compatible friend, the result will display as a modal pop-up.
+   * The modal displays both the name and picture of the closest match.
 
 
  
