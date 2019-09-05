@@ -39,6 +39,7 @@ module.exports = function (app) {
 
                 // If totalDifference is less than the best match
                 if (totalDifference <= bestMatch.friendDifference) {
+
                     // Assigning new friend to be the bestMatch
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;

@@ -2,7 +2,7 @@
 
 Compatibility-based full-stack site that takes results from users surveys and compares answers with those from other users
 
-[Link to Friend Finder Demo!](https://drive.google.com/file/d/1oYwg8tB3UqN4bJZ26TUmWUXmKdre86iV/view?usp=sharing) 
+[Link to Friend Finder on Heroku!](https://rocky-reef-72181.herokuapp.com/) 
 
 ## Authors
 Ashley Erffmeyer, with major support from KU's Coding Boot Camp staff members:
@@ -12,38 +12,33 @@ Ashley Erffmeyer, with major support from KU's Coding Boot Camp staff members:
 
 ## Tools Used
 * JavaScript
-* MySQL
 * Node.js
-* [Body-Parser](https://www.npmjs.com/package/body-parser)
-* [MySQL](https://www.npmjs.com/package/mysql)
 * Express.js
+* [Body-Parser](https://www.npmjs.com/package/body-parser)
+* [Path](https://www.npmjs.com/package/path)
 * Heroku
 
 ## Prerequisites & Installations
 
-In order to run this command line node app, first install node.js and npm. To install the app, clone this repository and use 'npm install' to gather dependencies specified in the package.json file (inquirer and MySQL). The depencencies are needed for data input and storage in the database.
-
-## Application Overview
-
-The app will take in orders from customers using the `inquirer` npm packages and deplete stock from the store's inventory. As a bonus, the application will also track product sales across Bamazon departments and then provide a summary of the highest-grossing departments in the store.
+In order to run this application, first install node.js, express.js, and npm. To install the app, clone this repository and use 'npm install' to gather dependencies specified in the package.json file (body parser, path, etc.).
 
 ## Instructions
 
-1. Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
+The survey has 10 questions. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
 
-2. Your `server.js` file should require the basic npm packages we've used in class: `express` and `path`.
+The`server.js` file requires the basic npm packages used in class: `express` and `path`.
 
-3. Your `htmlRoutes.js` file should include two routes:
+The`htmlRoutes.js` file includes two routes:
 
-   * A GET Route to `/survey` which should display the survey page.
+   * A GET Route to `/survey` which displays the survey page.
    * A default, catch-all route that leads to `home.html` which displays the home page.
 
-4. Your `apiRoutes.js` file should contain two routes:
+The `apiRoutes.js` file contains two routes:
 
-   * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
-   * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
+   * A GET route with the url `/api/friends`. This displays a JSON of all possible friends.
+   * A POST routes `/api/friends`. This is used to handle incoming survey results and the compatibility logic.
 
-5. You should save your application's data inside of `app/data/friends.js` as an array of objects. Each of these objects should roughly follow the format below.
+The application's data is saved inside of `app/data/friends.js` as an array of objects. Each of these objects should roughly follow the format below.
 
 ```json
 {
