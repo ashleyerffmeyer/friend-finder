@@ -40,6 +40,7 @@
         <h3><strong>Question 1</strong></h3>
         <h4>You are always thinking about apples.</h4>
         <select data-placeholder="" class="chosen-select" id="q1">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -52,6 +53,7 @@
         <h3><strong>Question 2</strong></h3>
         <h4>You like hanging out by water.</h4>
         <select data-placeholder="" class="chosen-select" id="q2">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -64,6 +66,7 @@
         <h3><strong>Question 3</strong></h3>
         <h4>You have a twin.</h4>
         <select data-placeholder="" class="chosen-select" id="q3">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -76,6 +79,7 @@
         <h3><strong>Question 4</strong></h3>
         <h4>You are full of cute rage.</h4>
         <select data-placeholder="" class="chosen-select" id="q4">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -88,6 +92,7 @@
         <h3><strong>Question 5</strong></h3>
         <h4>You are mischievous and have a pet alligator.</h4>
         <select data-placeholder="" class="chosen-select" id="q5">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -100,6 +105,7 @@
         <h3><strong>Question 6</strong></h3>
         <h4>You are a little scatterbrained.</h4>
         <select data-placeholder="" class="chosen-select" id="q6">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -112,6 +118,7 @@
         <h3><strong>Question 7</strong></h3>
         <h4>You love the forest.</h4>
         <select data-placeholder="" class="chosen-select" id="q7">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -124,6 +131,7 @@
         <h3><strong>Question 8</strong></h3>
         <h4>You like banana ice cream.</h4>
         <select data-placeholder="" class="chosen-select" id="q8">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -136,6 +144,7 @@
         <h3><strong>Question 9</strong></h3>
         <h4>You'd like to live in London.</h4>
         <select data-placeholder="" class="chosen-select" id="q9">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -148,6 +157,7 @@
         <h3><strong>Question 10</strong></h3>
         <h4>You are lazy and love breakfast food.</h4>
         <select data-placeholder="" class="chosen-select" id="q10">
+            <option selected>Make a choice...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -159,7 +169,7 @@
 
         <div class="">
             <button type="button" class="btn btn-lg btn-primary btn-block">
-                <i class="fa fa-check-cirle" aria-hidden="true"></i>Submit
+                <i class="far fa-check-square"></i> Submit
             </button>
         </div>
 
@@ -169,7 +179,8 @@
 
     <footer class="footer">
         <div class="container">
-            <p><a href='#'>API Friend Finder</a> | <a href='https://github.com/ashleyerffmeyer/friend-finder'>GitHub
+            <p><a href='https://rocky-reef-72181.herokuapp.com/api/friends'>API Friend Finder</a> | <a
+                    href='https://github.com/ashleyerffmeyer/friend-finder'>GitHub
                     Repo</a></p>
         </div>
     </footer>
@@ -186,11 +197,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <h2 id="sanrio-name"></h2>
+                    <img id="sanrio-photo" alt="sanrio-character" src="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -246,6 +257,8 @@
                 $.post(currentURL + "/api/friends", userData, function (data) {
                     // Show modal with the best match
                     $("#resultsModal").modal("toggle");
+                    $("#sanrio-name").text(userData.name);
+                    $("#sanrio-photo").attr("src", userData.photo);
 
                     // Alert "Working" to user
                     alert("Working!");
