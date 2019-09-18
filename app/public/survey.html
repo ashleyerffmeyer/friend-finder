@@ -7,21 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SanrioMatch</title>
 
-    <!--Bootstrap Links-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/ef78956514.js"></script>
+
 </head>
 
 <body>
@@ -34,7 +32,7 @@
         <input type="text" name="" id="name" class="form-control" required>
 
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" name="" id="name" class="photo" required>
+        <input type="text" name="" id="photo" class="photo" required>
         <hr>
 
         <h3><strong>Question 1</strong></h3>
@@ -168,7 +166,7 @@
         <br>
 
         <div class="">
-            <button type="button" class="btn btn-lg btn-primary btn-block">
+            <button type="button" id="submit" class="btn btn-lg btn-primary btn-block">
                 <i class="far fa-check-square"></i> Submit
             </button>
         </div>
@@ -186,22 +184,22 @@
     </footer>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal resultsModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="results-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Best Match!</h5>
+                    <h5 class="modal-title">Best Match!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <h2 id="sanrio-name"></h2>
-                    <img id="sanrio-photo" alt="sanrio-character" src="">
+                    <img id="sanrio-photo" alt="your-sanrio-match">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -211,8 +209,10 @@
     <script type="text/javascript">
 
         // When submit button is clicked 
-        $("submit").on("click", function () {
+        $("#submit").on("click", function () {
+            event.preventDefault();
 
+            console.log("Clicked!")
             // Validate form
             function validateForm() {
                 var isValid = true;
@@ -222,7 +222,7 @@
                     }
                 });
 
-                $(".chose-select").each(function () {
+                $(".chosen-select").each(function () {
                     if ($(this).val() === "") {
                         isValid = false;
                     }
@@ -256,12 +256,9 @@
 
                 $.post(currentURL + "/api/friends", userData, function (data) {
                     // Show modal with the best match
-                    $("#resultsModal").modal("toggle");
                     $("#sanrio-name").text(userData.name);
                     $("#sanrio-photo").attr("src", userData.photo);
-
-                    // Alert "Working" to user
-                    alert("Working!");
+                    $("#results-modal").modal("show");
                 });
             }
             else {

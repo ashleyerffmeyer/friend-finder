@@ -7,7 +7,7 @@ module.exports = function (app) {
         res.json(friends);
     });
 
-    app.get("/api/friends", function (req, res) {
+    app.post("/api/friends", function (req, res) {
 
         var bestMatch = {
             name: "",
@@ -21,21 +21,21 @@ module.exports = function (app) {
         var userData = req.body;
         var userScores = userData.scores;
 
-        console.log(userScores);
+        //console.log(userScores);
 
         // Calculates the difference between score of user and scores of those in the database
         var totalDifference = 0;
 
         // Loop thru friends in database
         for (var i = 0; i < friends.length; i++) {
-            console.log(friends[i]);
+            //console.log(friends[i]);
             totalDifference = 0;
 
             // Loop thru scores of each friend
-            for (var j = 0; j < friends[i].length; j++) {
+            for (var j = 0; j < friends[i].scores.length; j++) {
 
                 // Calculate the differences between the scores and sum them into the totalDistance value
-                totalDifference = Math.abs(parseInt(userScores[j]) - parseInt(friends[i]).scores[j]);
+                totalDifference = Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
                 // If totalDifference is less than the best match
                 if (totalDifference <= bestMatch.friendDifference) {
@@ -44,6 +44,9 @@ module.exports = function (app) {
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;
                     bestMatch.friendDifference = totalDifference;
+
+                    console.log(bestMatch.name);
+
                 }
             }
         }
