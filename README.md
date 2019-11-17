@@ -1,6 +1,6 @@
 # Friend Finder Node and Express Servers Application
 
-Compatibility-based full-stack site that takes results from users surveys and compares answers with those from other users
+Compatibility-based full-stack site that takes results from user surveys and compares answers with those from other users
 
 [Link to Friend Finder on Heroku!](https://rocky-reef-72181.herokuapp.com/) 
 
@@ -20,7 +20,7 @@ Ashley Erffmeyer, with major support from KU's Coding Boot Camp staff members:
 
 ## Prerequisites & Installations
 
-In order to run this application, first install node.js, express.js, and npm. To install the app, clone this repository and use 'npm install' to gather dependencies specified in the package.json file (body parser, path, etc.).
+In order to run this application, first install node.js, express.js, and npm. To install the app, clone this repository and use 'npm install' to gather dependencies specified in the package.json file (body parser, path, express, etc.).
 
 ## Instructions
 
@@ -72,6 +72,3 @@ The user's most compatible friend is determined using the following as a guide:
 
 Once you've found the current user's most compatible friend, the result will display as a modal pop-up.
    * The modal displays both the name and picture of the closest match.
-
-
- 
